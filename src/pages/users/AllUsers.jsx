@@ -9,15 +9,9 @@ const AllUsers = () => {
   const { user } = useContext(AuthContext);
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    // fetch("http://localhost:5000/users")
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setUsers(data);
-    //   });
     fetchUsers();
     // Set up the interval to fetch updated user data every 5 seconds
     const interval = setInterval(fetchUsers, 5000);
-
     // Clean up the interval when the component is unmounted
     return () => clearInterval(interval);
   }, []);
