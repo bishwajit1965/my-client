@@ -33,7 +33,7 @@ const NavBar = () => {
         <NavLink to="/users">Users</NavLink>
       </li>
       <li>
-        <NavLink to="/gallery">Gallery</NavLink>
+        <NavLink to="/view-gallery">Gallery</NavLink>
       </li>
     </>
   );

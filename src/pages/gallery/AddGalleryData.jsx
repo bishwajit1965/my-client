@@ -1,8 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const AddGalleryData = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -28,10 +30,11 @@ const AddGalleryData = () => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "gallery image uploaded!",
+            title: "Gallery image uploaded!",
             showConfirmButton: false,
             timer: 1500,
           });
+          navigate("/view-gallery");
         }
       });
   };

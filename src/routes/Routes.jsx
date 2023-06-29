@@ -14,6 +14,8 @@ import PrivateRoute from "../pages/privateRoute/PrivateRoute";
 import Dashboard from "../pages/dashboard/Dashboard";
 import AllUsers from "../pages/users/AllUsers";
 import AddGalleryData from "../pages/gallery/AddGalleryData";
+import Gallery from "../pages/gallery/Gallery";
+import EditGalleryImage from "../pages/gallery/EditGalleryImage";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +80,16 @@ const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <AddGalleryData />,
+      },
+      {
+        path: "/view-Gallery",
+        element: <Gallery />,
+      },
+      {
+        path: "/edit-gallery-image/:id",
+        element: <EditGalleryImage />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/gallery/${params.id}`),
       },
       {
         path: "/login",
