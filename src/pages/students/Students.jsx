@@ -44,7 +44,7 @@ const Students = () => {
     });
   };
   return (
-    <div className="my-5">
+    <div className="">
       <Helmet>
         <title>My Client || Students</title>
       </Helmet>

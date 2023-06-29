@@ -32,6 +32,9 @@ const NavBar = () => {
       <li>
         <NavLink to="/users">Users</NavLink>
       </li>
+      <li>
+        <NavLink to="/gallery">Gallery</NavLink>
+      </li>
     </>
   );
   const handleLogOut = () => {

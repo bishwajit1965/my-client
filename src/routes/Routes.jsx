@@ -13,6 +13,7 @@ import AddStudent from "../pages/addStudent/AddStudent";
 import PrivateRoute from "../pages/privateRoute/PrivateRoute";
 import Dashboard from "../pages/dashboard/Dashboard";
 import AllUsers from "../pages/users/AllUsers";
+import AddGalleryData from "../pages/gallery/AddGalleryData";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/students/${params.id}`),
+      },
+      {
+        path: "/gallery",
+        element: <AddGalleryData />,
       },
       {
         path: "/login",

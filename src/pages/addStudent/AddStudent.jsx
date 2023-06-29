@@ -13,7 +13,6 @@ const AddStudent = () => {
     const email = form.email.value;
     const phone = form.phone.value;
     const address = form.address.value;
-    console.log(id, photo, name, class_name, subject, email, phone, address);
 
     const studentInputData = {
       id,
@@ -34,7 +33,6 @@ const AddStudent = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             position: "top-end",
@@ -96,7 +94,6 @@ const AddStudent = () => {
                 className="input input-bordered"
               />
             </div>
-
             <div className="form-control col-span-4">
               <input
                 type="text"
@@ -124,7 +121,7 @@ const AddStudent = () => {
               />
             </div>
           </div>
-          <div className="w-full mb-4">
+          <div className="w-full">
             <button
               type="submit"
               className="bg-indigo-500 w-full text-white py-4 rounded-md uppercase"

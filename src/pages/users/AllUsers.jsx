@@ -99,27 +99,31 @@ const AllUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((dbUser, index) => (
-              <tr key={dbUser._id}>
-                <th>{index + 1}</th>
-                <td>{dbUser.name}</td>
-                <td>{dbUser.email}</td>
-                <td>
-                  {dbUser.role === "admin" ? (
-                    "Admin"
-                  ) : (
-                    <FaUser onClick={() => handleMakeAdmin(dbUser._id)} />
-                  )}
-                </td>
-                <td>
-                  <Link onClick={() => handleDelete(dbUser._id)}>
-                    <button className="btn btn-circle btn-outline btn-sm">
-                      <FaTrash className="w-4 h-4 text-red-500 hover:text-white" />
-                    </button>
-                  </Link>
-                </td>
-              </tr>
-            ))}
+            {users.length > 0 ? (
+              users.map((dbUser, index) => (
+                <tr key={dbUser._id}>
+                  <th>{index + 1}</th>
+                  <td>{dbUser.name}</td>
+                  <td>{dbUser.email}</td>
+                  <td>
+                    {dbUser.role === "admin" ? (
+                      "Admin"
+                    ) : (
+                      <FaUser onClick={() => handleMakeAdmin(dbUser._id)} />
+                    )}
+                  </td>
+                  <td>
+                    <Link onClick={() => handleDelete(dbUser._id)}>
+                      <button className="btn btn-circle btn-outline btn-sm">
+                        <FaTrash className="w-4 h-4 text-red-500 hover:text-white" />
+                      </button>
+                    </Link>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <td className="text-red-500">No data is available!</td>
+            )}
           </tbody>
           <tfoot>
             <tr className="bg-slate-200">
