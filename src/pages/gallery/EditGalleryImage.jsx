@@ -94,7 +94,7 @@ const EditGalleryImage = () => {
               <div className="col-span-6">
                 <button type="submit" className="btn btn-primary w-full">
                   <FaRegEdit />
-                  Update Gallery Image
+                  Update Gallery
                 </button>
               </div>
               <div className="col-span-6">

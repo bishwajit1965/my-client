@@ -6,14 +6,20 @@ import { Helmet } from "react-helmet-async";
 
 const Students = () => {
   const [students, setStudents] = useState([]);
+  const [page, setPage] = useState(1);
+  const [size, setSize] = useState(5);
+  const [count, setCount] = useState(0);
+  const pages = Math.ceil(count / size);
+  console.log(count, pages);
 
   useEffect(() => {
-    fetch("http://localhost:5000/students")
+    fetch(`http://localhost:5000/students?page=${page}&size=${size}`)
       .then((response) => response.json())
       .then((data) => {
-        setStudents(data);
+        setStudents(data.students);
+        setCount(data.count);
       });
-  }, []);
+  }, [page, size]);
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -43,6 +49,7 @@ const Students = () => {
       }
     });
   };
+
   return (
     <div className="">
       <Helmet>
@@ -109,6 +116,31 @@ const Students = () => {
             </tr>
           </tfoot>
         </table>
+        <div className="text-center my-4">
+          Page:{page + 1} and size: {size}{" "}
+          {[...Array(pages).keys()].map((number) => (
+            <button
+              key={number}
+              className={`btn btn-xs rounded-full m-2 ${
+                page === number && "selected"
+              }`}
+              onClick={() => setPage(number)}
+            >
+              {number + 1}
+            </button>
+          ))}
+          <select
+            className="border rounded-md ml-2"
+            onChange={(event) => setSize(event.target.value)}
+          >
+            <option value="5" selected>
+              5
+            </option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
       </div>
     </div>
   );

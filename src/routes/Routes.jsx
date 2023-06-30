@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: (
           <PrivateRoute>
-            <Dashboard />,
+            <Dashboard />
           </PrivateRoute>
         ),
       },
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         path: "/users",
         element: (
           <PrivateRoute>
-            <AllUsers />,
+            <AllUsers />
           </PrivateRoute>
         ),
       },
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         path: "/add-student",
         element: (
           <PrivateRoute>
-            <AddStudent />,
+            <AddStudent />
           </PrivateRoute>
         ),
       },
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
         path: "/edit-student/:id",
         element: (
           <PrivateRoute>
-            <EditStudent />,
+            <EditStudent />
           </PrivateRoute>
         ),
         loader: ({ params }) =>
